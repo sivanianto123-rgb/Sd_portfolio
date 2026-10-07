@@ -247,6 +247,173 @@
   </div>
 </section>
 
+<!-- ======================= PROJECTS ======================= -->
+<section class="section section-alt" id="projects">
+  <div class="container">
+    <p class="section-kicker reveal">04 · Projects</p>
+    <h2 class="section-title reveal">Full-stack &amp; AI systems, built from first principles.</h2>
+    <p class="section-sub reveal">
+      Five systems I built end-to-end in 2026 to understand — not just use — the infrastructure
+      that production AI and data platforms run on. Source for all of them lives in my
+      <a href="https://github.com/sivanianto123-rgb/workspace" target="_blank" rel="noopener">GitHub</a>.
+    </p>
+
+    <div class="projects-grid">
+
+      <!-- ModelWatch -->
+      <article class="project-card featured reveal">
+        <div class="project-media">
+          <div class="project-media-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="project-chip">Featured</div>
+        </div>
+        <div class="project-body">
+          <h3>ModelWatch — ML Drift Detection Platform</h3>
+          <p class="project-year">2026</p>
+          <p>
+            A full-stack platform that simulates production ML traffic and detects real-time feature
+            drift using Population Stability Index (PSI) and Kolmogorov–Smirnov tests implemented from
+            first principles. Trains a model, serves predictions, logs every scored request, and
+            auto-retrains when drift crosses a configurable threshold — with a Flask + PostgreSQL
+            backend and a Chart.js dashboard.
+          </p>
+          <ul class="project-highlights">
+            <li>Flask app factory with blueprinted routes for train / predict / drift / dashboard</li>
+            <li>PostgreSQL schema tracking experiments, runs, prediction logs, drift reports &amp; retrain events</li>
+            <li>PSI and KS tests implemented from scratch, not pulled from a library</li>
+            <li>Automated retraining triggered when drifted-feature fraction exceeds a threshold</li>
+          </ul>
+          <div class="tag-row small">
+            <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span>
+            <span class="tag">SQLAlchemy</span><span class="tag">Chart.js</span><span class="tag">scikit-learn</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sivanianto123-rgb/workspace/tree/main/modelwatch" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Source</a>
+            <a href="https://github.com/sivanianto123-rgb/workspace/blob/main/modelwatch/README.md" target="_blank" rel="noopener"><i class="fa-solid fa-book"></i> Read-me</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- HNSW Vector Search -->
+      <article class="project-card featured reveal">
+        <div class="project-media project-media-img">
+          <img src="assets/img/vecsearch-benchmark.png" alt="Recall vs. query latency benchmark chart for the HNSW vector search engine" loading="lazy" />
+          <div class="project-chip">Featured</div>
+        </div>
+        <div class="project-body">
+          <h3>HNSW Vector Search Engine</h3>
+          <p class="project-year">2026</p>
+          <p>
+            A from-scratch implementation of Hierarchical Navigable Small World (HNSW) graphs — the
+            approximate-nearest-neighbour algorithm behind FAISS, Pinecone, Weaviate, Qdrant and
+            pgvector — built up from an exact brute-force index through a single-layer NSW graph to
+            the full hierarchical index, with a benchmark suite to prove it works.
+          </p>
+          <ul class="project-highlights">
+            <li>Benchmarked against brute-force across 50K vectors with measured recall@10 vs. latency</li>
+            <li>Up to <strong>43x</strong> query speedup over brute force at scale, with tunable recall via <code>ef_search</code></li>
+            <li>Diversity-heuristic neighbour selection from the original HNSW paper</li>
+            <li>CLI (<code>vecsearch build | query | benchmark</code>) plus a persistence layer and Pareto chart</li>
+          </ul>
+          <div class="tag-row small">
+            <span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Data Structures</span>
+            <span class="tag">ANN Search</span><span class="tag">Pytest</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sivanianto123-rgb/workspace/tree/main/vecsearch" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Source</a>
+            <a href="https://github.com/sivanianto123-rgb/workspace/blob/main/vecsearch/README.md" target="_blank" rel="noopener"><i class="fa-solid fa-book"></i> Read-me</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Raft -->
+      <article class="project-card reveal">
+        <div class="project-media">
+          <div class="project-media-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+        </div>
+        <div class="project-body">
+          <h3>Raft Consensus Distributed-Systems Simulator</h3>
+          <p class="project-year">2026</p>
+          <p>
+            A dependency-free simulation of the Raft consensus algorithm — leader election, heartbeats,
+            log replication, and crash / network-partition fault injection — running on a single-threaded
+            simulated clock so the whole protocol is a deterministic function of its inputs.
+          </p>
+          <ul class="project-highlights">
+            <li>Interactive REPL: kill / revive nodes, partition &amp; heal the network, submit commands</li>
+            <li>Automated tests verifying split-brain prevention and automatic leader recovery</li>
+            <li>Deterministic, seedable simulation — a bug found at tick 2000 reproduces every time</li>
+          </ul>
+          <div class="tag-row small">
+            <span class="tag">Python</span><span class="tag">Distributed Systems</span><span class="tag">Concurrency</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sivanianto123-rgb/workspace/tree/main/raftsim" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Source</a>
+            <a href="https://github.com/sivanianto123-rgb/workspace/blob/main/raftsim/README.md" target="_blank" rel="noopener"><i class="fa-solid fa-book"></i> Read-me</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Repo Doctor -->
+      <article class="project-card reveal">
+        <div class="project-media">
+          <div class="project-media-icon"><i class="fa-solid fa-stethoscope"></i></div>
+        </div>
+        <div class="project-body">
+          <h3>Repo Doctor CLI — Git Static Analysis Tool</h3>
+          <p class="project-year">2026</p>
+          <p>
+            A pip-installable CLI that runs pattern-based static analysis over Git repositories to flag
+            leaked secrets, oversized files, and missing <code>.gitignore</code> entries — with
+            color-coded terminal reporting, built to work as a pre-commit gate.
+          </p>
+          <ul class="project-highlights">
+            <li>Detects AWS keys, generic API keys, hardcoded passwords &amp; private-key blocks</li>
+            <li>Shipped with a full pytest suite validating every check against fixture repos</li>
+            <li>Proper exit codes (0 / 1 / 2) so it drops straight into a pre-commit hook</li>
+          </ul>
+          <div class="tag-row small">
+            <span class="tag">Python</span><span class="tag">Pytest</span><span class="tag">Static Analysis</span><span class="tag">Git</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sivanianto123-rgb/workspace/tree/main/repodoc" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Source</a>
+            <a href="https://github.com/sivanianto123-rgb/workspace/blob/main/repodoc/README.md" target="_blank" rel="noopener"><i class="fa-solid fa-book"></i> Read-me</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- txnkv -->
+      <article class="project-card reveal">
+        <div class="project-media">
+          <div class="project-media-icon"><i class="fa-solid fa-layer-group"></i></div>
+        </div>
+        <div class="project-body">
+          <h3>WAL + MVCC Transaction Engine</h3>
+          <p class="project-year">2026</p>
+          <p>
+            A transactional key-value store built from two ideas every real database relies on: a
+            write-ahead log for crash-safe durability, and multi-version concurrency control for
+            snapshot-isolated reads with write-write conflict detection.
+          </p>
+          <ul class="project-highlights">
+            <li>fsync-on-every-append WAL; state rebuilds correctly from the log alone after a crash</li>
+            <li>Snapshot isolation verified by test: a long-running transaction never sees a later commit</li>
+            <li>"First committer wins" conflict detection with <code>ConflictError</code> on write-write races</li>
+            <li>Interactive CLI exposing begin / get / put / commit / vacuum / crash for live demos</li>
+          </ul>
+          <div class="tag-row small">
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Storage Engines</span><span class="tag">System Design</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sivanianto123-rgb/workspace/tree/main/txnkv" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Source</a>
+            <a href="https://github.com/sivanianto123-rgb/workspace/blob/main/txnkv/README.md" target="_blank" rel="noopener"><i class="fa-solid fa-book"></i> Read-me</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <script src="assets/js/main.js"></script>
 </body>
 </html>
