@@ -1,5 +1,5 @@
 // ===== Year =====
-document.getElementById("year") && (document.getElementById("year").textContent = new Date().getFullYear());
+document.getElementById("year").textContent = new Date().getFullYear();
 
 // ===== Theme toggle =====
 const root = document.documentElement;
