@@ -41,11 +41,14 @@ navLinks.querySelectorAll("a").forEach((link) => {
   });
 });
 
-// ===== Nav scroll shadow =====
+// ===== Nav scroll shadow + back-to-top =====
 const nav = document.getElementById("nav");
+const backToTop = document.getElementById("backToTop");
 
 window.addEventListener("scroll", () => {
-  nav.classList.toggle("scrolled", window.scrollY > 20);
+  const scrolled = window.scrollY > 20;
+  nav.classList.toggle("scrolled", scrolled);
+  backToTop.classList.toggle("visible", window.scrollY > 500);
 }, { passive: true });
 
 // ===== Cursor glow (desktop only) =====
@@ -97,3 +100,21 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 statNums.forEach((el) => counterObserver.observe(el));
+
+// ===== Active nav link highlight =====
+const sections = document.querySelectorAll("section[id]");
+const navAnchors = document.querySelectorAll(".nav-links a");
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const id = entry.target.getAttribute("id");
+    const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+    if (!link) return;
+    if (entry.isIntersecting) {
+      navAnchors.forEach((a) => a.classList.remove("active"));
+      link.classList.add("active");
+    }
+  });
+}, { threshold: 0.4 });
+
+sections.forEach((s) => sectionObserver.observe(s));
