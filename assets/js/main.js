@@ -47,3 +47,53 @@ const nav = document.getElementById("nav");
 window.addEventListener("scroll", () => {
   nav.classList.toggle("scrolled", window.scrollY > 20);
 }, { passive: true });
+
+// ===== Cursor glow (desktop only) =====
+const cursorGlow = document.getElementById("cursorGlow");
+if (window.matchMedia("(pointer: fine)").matches) {
+  window.addEventListener("mousemove", (e) => {
+    cursorGlow.style.left = e.clientX + "px";
+    cursorGlow.style.top = e.clientY + "px";
+  }, { passive: true });
+} else {
+  cursorGlow.style.display = "none";
+}
+
+// ===== Reveal on scroll =====
+const revealEls = document.querySelectorAll(".reveal");
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("in-view");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+revealEls.forEach((el, i) => {
+  el.style.transitionDelay = `${Math.min(i % 6, 6) * 60}ms`;
+  revealObserver.observe(el);
+});
+
+// ===== Animated stat counters =====
+const statNums = document.querySelectorAll(".stat-num");
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.getAttribute("data-count"), 10);
+    const duration = 1400;
+    const start = performance.now();
+
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target).toLocaleString();
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    counterObserver.unobserve(el);
+  });
+}, { threshold: 0.5 });
+
+statNums.forEach((el) => counterObserver.observe(el));
