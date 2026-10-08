@@ -7,7 +7,7 @@ export default function Contact() {
     <section className="section contact" id="contact">
       <div className="section-grid">
         <div className="section-label-col">
-          <span className="section-num">06</span>
+          <span className="section-num">05</span>
           <span className="section-label">Contact</span>
         </div>
 

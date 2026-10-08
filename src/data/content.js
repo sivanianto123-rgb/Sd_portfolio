@@ -131,19 +131,3 @@ export const PROJECTS = [
     links: { source: `${REPO}/tree/main/txnkv`, readme: `${REPO}/blob/main/txnkv/README.md` },
   },
 ];
-
-export const EDUCATION = {
-  degree: "B.Tech in Computer Science and Engineering",
-  org: "SRM Institute of Science and Technology",
-  place: "Kattankulathur, Tamil Nadu",
-  date: "01/2021 — 12/2025",
-  meta: "CGPA: 7.38",
-};
-
-export const CERTIFICATIONS = [
-  { name: "IBM AI Developer Professional Certificate", org: "Coursera" },
-  { name: "Developing AI Applications with Python & Flask", org: "Coursera" },
-  { name: "Building AI Powered Chatbots Without Programming", org: "Coursera" },
-  { name: "Python for Data Science, AI Development", org: "AWS" },
-  { name: "Introduction to AI", org: "Coursera" },
-];
