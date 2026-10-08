@@ -1,50 +1,54 @@
 # Sd_portfolio
 
-Personal portfolio website for **T Sivani** — Software Engineer (Full-Stack & AI Systems).
+Personal landing page for **T Sivani** — Software Engineer (Full-Stack & AI Systems).
 
-A single-page, framework-free site (plain HTML/CSS/JS) covering:
-
-- **Hero** — intro, resume download, social links
-- **About** — professional summary
-- **Skills** — frontend, backend/APIs, databases, AI/ML systems, architecture & tools
-- **Experience** — Coreillustrio, Larsen & Toubro
-- **Projects** — five systems built from first principles:
-  - [ModelWatch](https://github.com/sivanianto123-rgb/workspace/tree/main/modelwatch) — ML drift-detection platform (Flask + PostgreSQL)
-  - [HNSW Vector Search Engine](https://github.com/sivanianto123-rgb/workspace/tree/main/vecsearch) — from-scratch approximate nearest-neighbour search, with benchmark chart
-  - [Raft Consensus Simulator](https://github.com/sivanianto123-rgb/workspace/tree/main/raftsim) — deterministic distributed-systems simulation
-  - [Repo Doctor CLI](https://github.com/sivanianto123-rgb/workspace/tree/main/repodoc) — git static-analysis / secret-scanning tool
-  - [WAL + MVCC Transaction Engine](https://github.com/sivanianto123-rgb/workspace/tree/main/txnkv) — transactional key-value store
-- **Education & Certifications**
-- **Contact** — email, phone, LinkedIn, GitHub, resume download
+A full-screen, animated hero: a background video, minimal black-and-white type, and a
+slide-in menu with contact links (GitHub, LinkedIn, email, resume).
 
 ## Tech
 
-Plain HTML5, CSS3 (custom properties, no framework), and vanilla JS (theme toggle,
-scroll reveal, animated counters, mobile nav). Fonts via Google Fonts, icons via Font Awesome
-(cdnjs). No build step — it's deployable as-is.
+React 19 + Vite, animated with [`motion`](https://motion.dev) (Framer Motion's successor
+package), icons from `lucide-react`. Plain CSS — no Tailwind. Font is Inter (300–600) from
+Google Fonts.
 
 ## Run locally
 
 ```bash
-python3 -m http.server 8000
-# open http://localhost:8000
+npm install
+npm run dev
+# open the printed localhost URL
+```
+
+## Build
+
+```bash
+npm run build      # outputs to dist/
+npm run preview    # serve the production build locally
 ```
 
 ## Deploy to GitHub Pages
 
-1. In the repo settings, go to **Pages** → **Build and deployment** → **Source: Deploy from a branch**.
-2. Branch: `claude/keen-franklin-q2lyb4` (or `main`, if you've merged it there), folder: `/ (root)`.
-3. Save — the site will be published at `https://sivanianto123-rgb.github.io/Sd_portfolio/`.
+Deployment is automatic via `.github/workflows/deploy.yml`: every push to `main` (or
+`claude/keen-franklin-q2lyb4`) builds the site and publishes it with GitHub's
+`actions/deploy-pages`.
+
+One-time setup: in the repo's **Settings → Pages**, set **Source** to **GitHub Actions**
+(not "Deploy from a branch"). After that, every push redeploys automatically. The site is
+served at `https://sivanianto123-rgb.github.io/Sd_portfolio/`, which is also why
+`vite.config.js` sets `base: "/Sd_portfolio/"`.
 
 ## Structure
 
 ```
 .
-├── index.html
-├── assets/
-│   ├── css/style.css
-│   ├── js/main.js
-│   ├── img/vecsearch-benchmark.png
+├── index.html              Vite entry point
+├── vite.config.js
+├── public/
 │   └── resume/T_Sivani_Resume.pdf
-└── README.md
+├── src/
+│   ├── main.jsx
+│   ├── App.jsx              hero, navbar, menu overlay
+│   ├── App.css
+│   └── index.css            resets + font
+└── .github/workflows/deploy.yml
 ```
