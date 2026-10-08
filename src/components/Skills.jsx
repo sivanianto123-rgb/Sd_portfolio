@@ -37,8 +37,8 @@ export default function Skills() {
       </div>
 
       <div className="marquee-stack">
-        <Marquee items={SKILL_MARQUEE} direction={1} duration={32} />
-        <Marquee items={[...SKILL_MARQUEE].reverse()} direction={-1} duration={26} />
+        <Marquee items={SKILL_MARQUEE} direction={1} duration={62} />
+        <Marquee items={[...SKILL_MARQUEE].reverse()} direction={-1} duration={52} />
       </div>
 
       <div className="skills-grid">
