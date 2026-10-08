@@ -665,64 +665,6 @@
   padding-bottom: 2px;
 }
 
-/* ===================== Education ===================== */
-.edu-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-top: 20px;
-  align-items: start;
-}
-
-.edu-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 28px;
-}
-
-.edu-card h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin: 0 0 10px;
-}
-
-.edu-org {
-  font-size: 0.9rem;
-  color: var(--text-dim);
-  margin: 0 0 6px;
-}
-
-.edu-meta {
-  font-size: 0.8rem;
-  color: var(--text-faint);
-  margin: 0;
-}
-
-.cert-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.cert-item {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 15px 18px;
-}
-
-.cert-item h4 {
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin: 0 0 3px;
-}
-
-.cert-item span {
-  font-size: 0.76rem;
-  color: var(--text-faint);
-}
-
 /* ===================== Contact ===================== */
 .contact-heading {
   margin: 0 0 28px;
@@ -822,10 +764,6 @@
     grid-template-columns: 1fr;
     direction: ltr;
     gap: 28px;
-  }
-
-  .edu-grid {
-    grid-template-columns: 1fr;
   }
 
   .contact-grid {
