@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sivanianto123-rgb.github.io/Sd_portfolio/sitemap.xml
